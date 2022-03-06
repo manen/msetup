@@ -15,7 +15,7 @@ requirements: git, [v](https://vlang.io)
 git clone https://github.com/manen/msetup
 cd msetup
 v . -prod -o out
-./out symlink
+sudo ./out symlink
 ```
 
 you're done!
