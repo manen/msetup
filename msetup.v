@@ -53,7 +53,7 @@ fn run(cmd cli.Command) ? {
 
 	ctx := assume_context()
 
-	test_dir := './test/'
+	test_dir := if os.exists('./.dont_msetup_here') { './test/' } else { './' }
 
 	editorconfig := ctx.process_embed($embed_file('./data/.editorconfig'))
 	license := ctx.process_embed($embed_file('./data/LICENSE.txt'))
