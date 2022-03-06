@@ -17,7 +17,9 @@ struct Context {
 }
 
 fn assume_context() Context {
-	return Context{os.getwd(), os.getwd(), time.now().year.str(), author}
+	name := last_element(os.getwd())
+
+	return Context{name, name, time.now().year.str(), author}
 }
 
 struct Templated {
@@ -26,7 +28,7 @@ struct Templated {
 }
 
 fn (ctx Context) process_embed(raw ef.EmbedFileData) Templated {
-	return Templated{raw.path, ctx.process_content(raw.to_string())}
+	return Templated{last_element(raw.path), ctx.process_content(raw.to_string())}
 }
 
 fn (ctx Context) process_content(raw string) string {
